@@ -18,7 +18,7 @@
 
 ```bash
 git clone https://github.com/liu-yongyuan/react-codemirror-tailwind-template.git
-cd js-code-runner
+cd react-codemirror-tailwind-template
 npm install
 npm run dev
 ```
@@ -82,7 +82,7 @@ import code from './code/variable-scope.ts?raw';
 
 ## 🧑‍💻 开发者
 
-Made with ❤️ by [https://github.com/liu-yongyuan]
+Made with ❤️ by yongyuan[https://github.com/liu-yongyuan]
 
 ---
 

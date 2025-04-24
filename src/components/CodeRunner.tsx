@@ -1,33 +1,29 @@
-import React, { useState, useRef } from 'react';
-import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
+import React, { useState, useRef } from 'react'
+import CodeMirror from '@uiw/react-codemirror'
+import { javascript } from '@codemirror/lang-javascript'
 
 export default function CodeRunner({ initialCode }: { initialCode: string }) {
-  const [code, setCode] = useState(initialCode);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const [code, setCode] = useState(initialCode)
+  const iframeRef = useRef<HTMLIFrameElement>(null)
 
   const runCode = () => {
-    const iframe = iframeRef.current;
+    const iframe = iframeRef.current
     if (iframe) {
-      const doc = iframe.contentDocument;
-      if (doc) {
-        doc.open();
-        doc.write(`
-          <!DOCTYPE html>
-          <html><body>
-          <script>
-            try {
-              \${code}
-            } catch (e) {
-              console.error(e);
-            }
-          <\/script>
-          </body></html>
-        `);
-        doc.close();
-      }
+      iframe.srcdoc = `
+        <!DOCTYPE html>
+        <html><body>
+        <script>
+          try {
+            ${code}
+          } catch (e) {
+            document.body.innerText = '错误: ' + e.message;
+            console.error(e);
+          }
+        <\/script>
+        </body></html>
+      `
     }
-  };
+  }
 
   return (
     <div className="flex flex-col gap-4">
@@ -43,7 +39,11 @@ export default function CodeRunner({ initialCode }: { initialCode: string }) {
       >
         运行代码
       </button>
-      <iframe ref={iframeRef} sandbox="allow-scripts" className="w-full h-40 border" />
+      <iframe
+        ref={iframeRef}
+        sandbox="allow-scripts"
+        className="w-full h-40 border"
+      />
     </div>
-  );
+  )
 }
