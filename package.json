@@ -13,6 +13,7 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.16",
     "@tailwindcss/postcss": "^4.1.4",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
@@ -26,6 +27,7 @@
     "postcss": "^8.5.3",
     "postcss-loader": "^8.1.1",
     "raw-loader": "^4.0.2",
+    "react-refresh": "^0.17.0",
     "style-loader": "^4.0.0",
     "tailwindcss": "^4.1.4",
     "ts-loader": "^9.5.2",
