@@ -16,3 +16,15 @@ dist/
 
 # node_modules
 node_modules/
+
+# dependencies
+/node_modules
+
+# testing
+/coverage
+
+# caches
+/.next/
+
+# production
+/build
